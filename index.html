@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+    <title>سارة و محمد - زفاف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Serif+Arabic:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        :root{--gold:#c9a96e;--gold-light:#e8d5a8;--gold-dark:#8a6d3b;--cream:#faf6ef;--cream2:#f3ece0;--text:#2c2c2c;--muted:#8a7d6b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:var(--cream);color:var(--text);font-family:'Noto Serif Arabic',serif;overflow-x:hidden}
+
+        /* ── Arabic ornament SVG divider ── */
+        .ara-div{text-align:center;padding:1.5rem 0;opacity:.55}
+        .ara-div svg{width:220px;height:40px}
+
+        /* Scroll reveal */
+        .rv{opacity:0;transform:translateY(36px);transition:opacity .9s,transform .9s}
+        .rv.vis{opacity:1;transform:none}
+
+        /* ══ HERO — full viewport ══ */
+        .hero{
+            position:relative;width:100%;min-height:100vh;
+            display:flex;flex-direction:column;align-items:center;justify-content:center;
+            background-size:cover;background-position:center;
+            background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnIiVnwhyin6EXlNFVkrQVoBzslFF96vsT7NvOwMNLd-Fvzfa10Mf-wFXVZYcdlPYuXzR4KoxxvxwedKcVthlBzjpn2zL0PV1BuU-wOM0Zg5OQrVbJlCfcIJItEOaSH-79NNJBFdl3EL3a0a3zYWGAT-YsVbWAz0EJO4AauWYMb0wU7ju-nfj9ExrmvNTB5Xd7xvE3KuIPPV7RBu5N5bmB09BHpRpuHWyRrftLc2v3fC0iqE3HRoOiBJctmI-5doj-yADwVCl4yUI');
+        }
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.55))}
+        .hero-c{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem}
+        .hero h1{font-family:'Amiri',serif;font-size:clamp(3rem,9vw,7rem);font-weight:400;line-height:1.15;text-shadow:0 2px 30px rgba(0,0,0,.3);margin-bottom:1rem}
+        .hero .date{font-size:clamp(1rem,2.5vw,1.5rem);letter-spacing:.5em;color:var(--gold-light);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+        .hero .arr{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);animation:bob 2.5s ease-in-out infinite}
+        .hero .arr span{font-size:32px;color:var(--gold-light)}
+        @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+        /* ── Arabic arch divider between hero and content ── */
+        .arch-div{width:100%;margin-top:-60px;position:relative;z-index:3}
+        .arch-div svg{display:block;width:100%;height:60px}
+
+        /* ══ COUNTDOWN ══ */
+        .cd-sec{background:var(--cream);text-align:center;padding:5rem 2rem 4rem}
+        .cd-sec h2{font-family:'Amiri',serif;font-size:1.6rem;color:var(--gold-dark);letter-spacing:.15em;margin-bottom:2.5rem}
+        .cd-grid{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+        .cd-box{
+            background:linear-gradient(135deg,#fff,var(--cream2));
+            border:1px solid var(--gold-light);border-radius:18px;
+            padding:1.8rem 2rem;min-width:110px;position:relative;overflow:hidden;
+            box-shadow:0 4px 20px rgba(201,169,110,.1);transition:transform .3s,box-shadow .3s;
+        }
+        .cd-box::before{
+            content:'';position:absolute;top:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,transparent,var(--gold),transparent);
+        }
+        .cd-box:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(201,169,110,.2)}
+
+        /* Flip animation for numbers */
+        .cd-num{
+            font-family:'Amiri',serif;font-size:3.2rem;line-height:1;
+            color:var(--text);display:block;position:relative;
+        }
+        .cd-num.flip{animation:flipIn .5s ease}
+        @keyframes flipIn{
+            0%{transform:rotateX(90deg);opacity:0}
+            100%{transform:rotateX(0);opacity:1}
+        }
+        .cd-lbl{font-size:.8rem;color:var(--muted);letter-spacing:.2em;margin-top:.4rem;display:block}
+
+        /* ══ EVENT DETAILS ══ */
+        .ev-sec{
+            background:linear-gradient(180deg,var(--cream),var(--cream2));
+            padding:5rem 2rem;text-align:center;
+        }
+        .ev-sec .stitle{font-family:'Amiri',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--text);margin-bottom:1rem}
+        .dt-card{
+            display:inline-flex;flex-direction:column;align-items:center;
+            border:2px solid var(--gold);border-radius:22px;
+            padding:2.2rem 3.5rem;margin:2rem 0 3rem;
+            background:rgba(255,255,255,.6);backdrop-filter:blur(6px);
+        }
+        .dt-card .dn{font-size:1.4rem;color:var(--gold-dark)}
+        .dt-card .dd{font-family:'Amiri',serif;font-size:3.5rem;line-height:1;color:var(--text);margin:.4rem 0}
+        .dt-card .dm{font-size:1.4rem;color:var(--gold-dark)}
+        .ev-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;max-width:860px;margin:0 auto}
+        .ev-card{
+            flex:1;min-width:260px;max-width:380px;
+            background:#fff;border-radius:22px;padding:2.5rem 2rem;text-align:center;
+            border:1px solid var(--gold-light);
+            box-shadow:0 6px 30px rgba(0,0,0,.04);transition:transform .4s,box-shadow .4s;
+            position:relative;overflow:hidden;
+        }
+        .ev-card::after{
+            content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+            background:linear-gradient(90deg,transparent,var(--gold),transparent);
+        }
+        .ev-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(201,169,110,.15)}
+        .ev-card .ic{font-size:44px;color:var(--gold);margin-bottom:1rem}
+        .ev-card h3{font-family:'Amiri',serif;font-size:1.6rem;color:var(--text);margin-bottom:.8rem}
+        .ev-card p{font-size:1rem;color:var(--muted);line-height:1.8}
+        .btn-g{
+            display:inline-block;margin-top:1.3rem;padding:.8rem 2.2rem;
+            border:2px solid var(--gold);border-radius:50px;
+            font-family:'Noto Serif Arabic',serif;font-size:.95rem;color:var(--gold-dark);
+            background:transparent;cursor:pointer;letter-spacing:.1em;transition:all .35s;
+        }
+        .btn-g:hover{background:var(--gold);color:#fff}
+
+        /* ══ TIMELINE — warm cream, no black ══ */
+        .tl-sec{
+            background:linear-gradient(180deg,var(--cream2),var(--cream));
+            padding:5rem 2rem;text-align:center;
+        }
+        .tl-sec h2{font-family:'Amiri',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--text);margin-bottom:3rem}
+        .tl{position:relative;max-width:620px;margin:0 auto;padding:1rem 0}
+        .tl::before{
+            content:'';position:absolute;left:50%;transform:translateX(-50%);
+            top:0;bottom:0;width:2px;
+            background:linear-gradient(180deg,transparent,var(--gold),var(--gold),transparent);
+        }
+        .tl-i{display:flex;align-items:center;margin-bottom:3rem;position:relative}
+        .tl-i:nth-child(even){flex-direction:row-reverse}
+        .tl-c{
+            width:44%;padding:1.2rem 1.5rem;border-radius:16px;
+            background:rgba(255,255,255,.7);border:1px solid var(--gold-light);
+            backdrop-filter:blur(4px);transition:background .3s,border-color .3s;
+        }
+        .tl-c:hover{background:rgba(232,213,168,.15);border-color:var(--gold)}
+        .tl-c .tm{font-size:.9rem;color:var(--gold-dark);margin-bottom:.2rem}
+        .tl-c .tt{font-family:'Amiri',serif;font-size:1.35rem;color:var(--text)}
+        .tl-d{
+            width:50px;height:50px;flex-shrink:0;border-radius:50%;
+            border:2px solid var(--gold);background:var(--cream);
+            display:flex;align-items:center;justify-content:center;
+            margin:0 auto;z-index:2;
+        }
+        .tl-d .material-symbols-outlined{font-size:22px;color:var(--gold)}
+        .tl-s{width:44%}
+
+        /* ══ INSTAGRAM ══ */
+        .ig-sec{
+            padding:5rem 2rem;text-align:center;
+            background:linear-gradient(180deg,var(--cream),var(--cream2));
+        }
+        .ig-sec .cnt{position:relative;z-index:2}
+        .ig-sec .ic{font-size:50px;color:var(--gold);margin-bottom:1rem}
+        .ig-sec h2{font-family:'Amiri',serif;font-size:2.5rem;color:var(--text);margin-bottom:1rem}
+        .ig-sec p{font-size:1.1rem;max-width:500px;margin:0 auto 1.5rem;color:var(--muted);line-height:1.8}
+        .ig-tag{
+            display:inline-block;padding:.7rem 2rem;border:1px solid var(--gold);
+            border-radius:50px;background:rgba(201,169,110,.08);
+            color:var(--gold-dark);font-size:1rem;letter-spacing:.2em;transition:background .3s;
+        }
+        .ig-tag:hover{background:rgba(201,169,110,.2)}
+
+        /* Arabic arch framed image */
+        .ig-frame{
+            position:relative;display:inline-block;margin:2rem auto;
+            width:min(400px,80vw);aspect-ratio:3/4;
+        }
+        .ig-frame img{
+            width:100%;height:100%;object-fit:cover;
+            clip-path:polygon(
+                0% 25%, 5% 12%, 15% 4%, 30% 0%, 50% 0%,
+                70% 0%, 85% 4%, 95% 12%, 100% 25%,
+                100% 100%, 0% 100%
+            );
+            border-radius:4px;
+        }
+        /* Gold decorative border around the arch */
+        .ig-frame::before{
+            content:'';position:absolute;inset:-6px;
+            clip-path:polygon(
+                0% 25%, 5% 12%, 15% 4%, 30% 0%, 50% 0%,
+                70% 0%, 85% 4%, 95% 12%, 100% 25%,
+                100% 100%, 0% 100%
+            );
+            background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));
+            z-index:-1;border-radius:4px;
+        }
+        /* Corner ornament dots */
+        .ig-frame::after{
+            content:'✦';position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);
+            color:var(--gold);font-size:1rem;opacity:.6;
+        }
+
+        /* ══ SONGS ══ */
+        .sg-sec{background:var(--cream);padding:5rem 2rem;text-align:center}
+        .sg-sec .ic{font-size:50px;color:var(--gold);margin-bottom:1rem}
+        .sg-sec h2{font-family:'Amiri',serif;font-size:2.5rem;color:var(--text);margin-bottom:1rem}
+        .sg-sec p{font-size:1.05rem;color:var(--muted);max-width:500px;margin:0 auto 1.5rem;line-height:1.8}
+        .btn-d{
+            display:inline-block;padding:.9rem 2.5rem;
+            background:var(--gold);color:#fff;border:2px solid var(--gold);
+            border-radius:50px;font-family:'Noto Serif Arabic',serif;font-size:1rem;
+            cursor:pointer;letter-spacing:.1em;transition:all .35s;
+        }
+        .btn-d:hover{background:transparent;color:var(--gold-dark)}
+
+        /* ══ FOOTER ══ */
+        footer{
+            background:linear-gradient(180deg,var(--cream2),#e8dcc8);
+            color:var(--muted);padding:3.5rem 2rem;text-align:center;font-size:.9rem;
+        }
+        footer .lnk{display:flex;justify-content:center;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap}
+        footer a{color:var(--muted);text-decoration:none;transition:color .3s;letter-spacing:.12em}
+        footer a:hover{color:var(--gold-dark)}
+        footer .cp{color:var(--gold-dark);letter-spacing:.12em;font-size:.8rem}
+
+        /* Arabic cultural border pattern */
+        .ara-border{
+            width:100%;height:30px;
+            background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='30' viewBox='0 0 120 30'%3E%3Cpath d='M0 15 Q15 0 30 15 Q45 30 60 15 Q75 0 90 15 Q105 30 120 15' fill='none' stroke='%23c9a96e' stroke-width='1.5' opacity='0.4'/%3E%3C/svg%3E") repeat-x center;
+        }
+
+        @media(max-width:640px){
+            .cd-box{min-width:75px;padding:1.3rem 1rem}
+            .cd-num{font-size:2.4rem}
+            .dt-card{padding:1.8rem 2.5rem}
+            .tl-c{padding:.9rem 1rem}
+            .tl-c .tt{font-size:1.1rem}
+            .tl-d{width:42px;height:42px}
+            .tl-d .material-symbols-outlined{font-size:18px}
+            .ev-card{padding:2rem 1.5rem}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+    <div class="hero-c">
+        <!-- Arabic arch ornament above names -->
+        <svg width="160" height="50" viewBox="0 0 160 50" style="margin:0 auto 1rem;display:block;opacity:.6">
+            <path d="M10 45 Q80 -10 150 45" fill="none" stroke="#e8d5a8" stroke-width="1.5"/>
+            <path d="M25 42 Q80 0 135 42" fill="none" stroke="#e8d5a8" stroke-width="1"/>
+            <circle cx="80" cy="8" r="3" fill="#e8d5a8" opacity=".5"/>
+        </svg>
+        <h1>سارة و محمد</h1>
+        <p class="date">٢٩ . ١١ . ٢٠٢٥</p>
+    </div>
+    <div class="arr"><span class="material-symbols-outlined">keyboard_arrow_down</span></div>
+</section>
+
+<!-- Arch transition -->
+<div class="arch-div">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path d="M0,0 Q720,60 1440,0 L1440,60 L0,60Z" fill="#faf6ef"/>
+    </svg>
+</div>
+
+<!-- ════ COUNTDOWN ════ -->
+<section class="cd-sec">
+    <div class="rv">
+        <h2>باقي على الزفاف</h2>
+        <div class="ara-div">
+            <svg viewBox="0 0 220 40">
+                <path d="M10 20 Q55 0 110 20 Q165 40 210 20" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+                <circle cx="110" cy="20" r="4" fill="none" stroke="#c9a96e" stroke-width="1"/>
+                <line x1="90" y1="20" x2="82" y2="20" stroke="#c9a96e" stroke-width="1" opacity=".5"/>
+                <line x1="130" y1="20" x2="138" y2="20" stroke="#c9a96e" stroke-width="1" opacity=".5"/>
+            </svg>
+        </div>
+        <div class="cd-grid">
+            <div class="cd-box"><span class="cd-num" id="d">120</span><span class="cd-lbl">أيام</span></div>
+            <div class="cd-box"><span class="cd-num" id="h">14</span><span class="cd-lbl">ساعات</span></div>
+            <div class="cd-box"><span class="cd-num" id="m">32</span><span class="cd-lbl">دقائق</span></div>
+            <div class="cd-box"><span class="cd-num" id="s">05</span><span class="cd-lbl">ثواني</span></div>
+        </div>
+    </div>
+</section>
+
+<div class="ara-border"></div>
+
+<!-- ════ EVENT DETAILS ════ -->
+<section class="ev-sec">
+    <div class="rv">
+        <p class="stitle">ننتظركم للاحتفال بزفافنا</p>
+        <div class="dt-card">
+            <span class="dn">السبت</span>
+            <span class="dd">٢٩</span>
+            <span class="dm">نوفمبر</span>
+        </div>
+    </div>
+    <div class="ev-grid">
+        <div class="ev-card rv">
+            <span class="material-symbols-outlined ic">menu_book</span>
+            <h3>عقد القران</h3>
+            <p>١٨:٠٠ م<br>جامع الراجحي، الرياض</p>
+            <button class="btn-g">الموقع</button>
+        </div>
+        <div class="ev-card rv">
+            <span class="material-symbols-outlined ic">celebration</span>
+            <h3>الحفل</h3>
+            <p>٢٠:٠٠ م<br>فندق الريتز كارلتون، الرياض</p>
+            <button class="btn-g">الموقع</button>
+        </div>
+    </div>
+</section>
+
+<div class="ara-border"></div>
+
+<!-- ════ TIMELINE ════ -->
+<section class="tl-sec">
+    <h2 class="rv">الجدول الزمني</h2>
+    <div class="ara-div rv">
+        <svg viewBox="0 0 220 40">
+            <path d="M10 20 Q55 0 110 20 Q165 40 210 20" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
+            <circle cx="110" cy="20" r="4" fill="none" stroke="#c9a96e" stroke-width="1"/>
+        </svg>
+    </div>
+    <div class="tl">
+        <div class="tl-i rv"><div class="tl-c"><p class="tm">١٧:٣٠</p><p class="tt">الاستقبال</p></div><div class="tl-d"><span class="material-symbols-outlined">event_seat</span></div><div class="tl-s"></div></div>
+        <div class="tl-i rv"><div class="tl-c"><p class="tm">١٨:٠٠</p><p class="tt">عقد القران</p></div><div class="tl-d"><span class="material-symbols-outlined">menu_book</span></div><div class="tl-s"></div></div>
+        <div class="tl-i rv"><div class="tl-c"><p class="tm">٢٠:٠٠</p><p class="tt">الضيافة</p></div><div class="tl-d"><span class="material-symbols-outlined">coffee</span></div><div class="tl-s"></div></div>
+        <div class="tl-i rv"><div class="tl-c"><p class="tm">٢١:٣٠</p><p class="tt">العشاء</p></div><div class="tl-d"><span class="material-symbols-outlined">restaurant</span></div><div class="tl-s"></div></div>
+        <div class="tl-i rv"><div class="tl-c"><p class="tm">٢٣:٠٠</p><p class="tt">الاحتفال</p></div><div class="tl-d"><span class="material-symbols-outlined">celebration</span></div><div class="tl-s"></div></div>
+    </div>
+</section>
+
+<div class="ara-border"></div>
+
+<!-- ════ INSTAGRAM ════ -->
+<section class="ig-sec">
+    <div class="cnt rv">
+        <span class="material-symbols-outlined ic">photo_camera</span>
+        <h2>إنستغرام</h2>
+        <p>نود أن نرى زفافنا من خلال عيونكم! شاركونا صوركم ومقاطع الفيديو الخاصة بكم.</p>
+        <div class="ig-frame">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO3Otc90dmQLpmVFggbo0IgnVemWhAyieEDIMl8xoq363rwiKk998u5swb057sIN8JtaIjWxW4He5oTNrOLGFO3swnw4G7t6znZXAOcKCZedLq4xYjwfMmK7NIl8JdrKLuQotwTQEiU92tV4eja1XY0Z-gFZogP-r6Io8745kCfSvzCWf4TOT2i1GgYyJeTTwH9AUovqyT6g7pAykzB6sOeHbAk1BB-WKE2P4lzJBAPLzpYmWNstznUt1AlRin1e8HxZwmlfNlA_E" alt="صورة الزفاف"/>
+        </div>
+        <div class="ig-tag" style="margin-top:1.5rem">@SARAH.MOHAMMED</div>
+    </div>
+</section>
+
+<!-- ════ SONGS ════ -->
+<section class="sg-sec">
+    <div class="rv">
+        <span class="material-symbols-outlined ic">music_note</span>
+        <h2>قائمة الأغاني</h2>
+        <p>ما هي الأغنية التي لا غنى عنها في الحفل؟ ساعدنا في تجهيز أفضل قائمة أغاني.</p>
+        <button class="btn-d">اقترح أغنية</button>
+    </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+    <div class="ara-div" style="padding:.8rem 0">
+        <svg viewBox="0 0 220 40"><path d="M10 20 Q55 0 110 20 Q165 40 210 20" fill="none" stroke="#c9a96e" stroke-width="1.2"/><circle cx="110" cy="20" r="4" fill="none" stroke="#c9a96e" stroke-width="1"/></svg>
+    </div>
+    <div class="lnk">
+        <a href="#">هدايا</a><a href="#">تأكيد الحضور</a><a href="#">الموقع</a>
+    </div>
+    <p class="cp">2025 سارة و محمد — صُنع بحب</p>
+</footer>
+
+<script>
+// Scroll reveal
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ob.unobserve(x.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// Live animated countdown — 1 month from now
+const W=Date.now()+30*24*60*60*1000;
+let prev={d:'',h:'',m:'',s:''};
+function upd(){
+    const df=Math.max(0,W-Date.now());
+    const v={
+        d:String(Math.floor(df/864e5)),
+        h:String(Math.floor(df%864e5/36e5)).padStart(2,'0'),
+        m:String(Math.floor(df%36e5/6e4)).padStart(2,'0'),
+        s:String(Math.floor(df%6e4/1e3)).padStart(2,'0')
+    };
+    ['d','h','m','s'].forEach(k=>{
+        if(v[k]!==prev[k]){
+            const el=document.getElementById(k);
+            el.textContent=v[k];
+            el.classList.remove('flip');
+            void el.offsetWidth; // reflow to restart animation
+            el.classList.add('flip');
+            prev[k]=v[k];
+        }
+    });
+}
+upd();setInterval(upd,1000);
+</script>
+</body>
+</html>
